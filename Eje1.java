@@ -1,5 +1,3 @@
-package Concurso;
-
 import java.util.*;
 
 public class Eje1 {
@@ -23,4 +21,5 @@ public class Eje1 {
             }
         }
     }
+
 }
