@@ -1,8 +1,6 @@
-package Concurso;
-
 import java.util.*;
 
-public class Eje9 {
+public class Main {
     static int[][][] memo;
 
     public static void main(String[] args) {
@@ -38,4 +36,5 @@ public class Eje9 {
         memo[n][k][start] = formas;
         return formas;
     }
+
 }
