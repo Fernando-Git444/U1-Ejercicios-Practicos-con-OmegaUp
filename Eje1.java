@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Eje1 {
+public class Main {
     public static void main(String[] args) {
        Scanner sc = new Scanner(System.in);
 
@@ -23,3 +23,4 @@ public class Eje1 {
     }
 
 }
+
