@@ -1,8 +1,6 @@
-package Concurso;
-
 import java.util.Scanner;
 
-public class Eje14 {
+public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -20,4 +18,5 @@ public class Eje14 {
         System.out.println(resultado);
         return resultado;
     }
+
 }
