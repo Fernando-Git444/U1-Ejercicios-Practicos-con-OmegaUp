@@ -1,29 +1,49 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
+
+    static final int MODULO = 2017;
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        long n = sc.nextLong(); // usamos long porque n puede ser muy grande
+        Scanner lector = new Scanner(System.in);
+        long posicion = lector.nextLong();
+        lector.close();
 
-        int MOD = 2017;
-
-        if (n == 1 || n == 2) {
-            System.out.println(1); // los dos primeros son 1
-            return;
+        if (posicion == 1 || posicion == 2) {
+            System.out.println(1);
+        } else {
+            System.out.println(fibonacciMod(posicion));
         }
-
-        // Variables para ir generando la secuencia
-        int a = 1, b = 1; 
-        int fib = 0;
-
-        // Iteramos desde el 3 hasta n
-        for (long i = 3; i <= n; i++) {
-            fib = (a + b) % MOD; // aplicamos módulo en cada paso
-            a = b;
-            b = fib;
-        }
-
-        System.out.println(fib);
     }
 
+    static int fibonacciMod(long n) {
+        int[][] matrizBase = { {1, 1}, {1, 0} };
+        int[][] matrizResultado = elevarMatriz(matrizBase, n - 1);
+        return matrizResultado[0][0] % MODULO;
+    }
+
+    static int[][] elevarMatriz(int[][] matriz, long exponente) {
+        int[][] identidad = { {1, 0}, {0, 1} };
+
+        while (exponente > 0) {
+            if ((exponente & 1) == 1) {
+                identidad = multiplicarMatrices(identidad, matriz);
+            }
+            matriz = multiplicarMatrices(matriz, matriz);
+            exponente >>= 1;
+        }
+
+        return identidad;
+    }
+
+    static int[][] multiplicarMatrices(int[][] m1, int[][] m2) {
+        int[][] resultado = new int[2][2];
+
+        resultado[0][0] = (int)(((long)m1[0][0] * m2[0][0] + (long)m1[0][1] * m2[1][0]) % MODULO);
+        resultado[0][1] = (int)(((long)m1[0][0] * m2[0][1] + (long)m1[0][1] * m2[1][1]) % MODULO);
+        resultado[1][0] = (int)(((long)m1[1][0] * m2[0][0] + (long)m1[1][1] * m2[1][0]) % MODULO);
+        resultado[1][1] = (int)(((long)m1[1][0] * m2[0][1] + (long)m1[1][1] * m2[1][1]) % MODULO);
+
+        return resultado;
+    }
 }
