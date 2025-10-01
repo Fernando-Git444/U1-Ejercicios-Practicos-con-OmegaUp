@@ -1,8 +1,6 @@
-package Concurso;
-
 import java.util.Scanner;
 
-public class Eje12 {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); // n!
@@ -17,3 +15,4 @@ public class Eje12 {
         System.out.println(resultado);
     }
 }
+
