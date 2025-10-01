@@ -1,8 +1,6 @@
-package Concurso;
-
 import java.util.*;
 
-public class Eje11 {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong(); // usamos long porque n puede ser muy grande
@@ -27,4 +25,5 @@ public class Eje11 {
 
         System.out.println(fib);
     }
+
 }
