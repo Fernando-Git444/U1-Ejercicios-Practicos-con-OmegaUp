@@ -1,20 +1,22 @@
-package Concurso;
-
 import java.util.Scanner;
 
-public class Eje13 {
-    // Definimos la función recursiva
-    static long f(int n) {
-        if (n <= 5) {
-            return 1; // caso base
-        } else {
-            return f(n - 2) * 5; // caso recursivo
-        }
+public class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int numero = entrada.nextInt();
+        calcular(numero);
+        entrada.close();
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); // leemos n
-        System.out.println(f(n));
+    public static long calcular(int valor) {
+        if (valor <= 5) {
+            System.out.println(1);
+            return 1;
+        } else {
+            long resultadoPrevio = calcular(valor - 2);
+            long resultadoActual = resultadoPrevio * 5;
+            System.out.println(resultadoActual);
+            return resultadoActual;
+        }
     }
 }
